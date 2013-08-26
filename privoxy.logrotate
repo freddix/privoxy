@@ -1,0 +1,21 @@
+/var/log/privoxy/logfile {
+	su privoxy privoxy
+	create 644 privoxy privoxy
+	missingok
+	compress
+	size 1M
+	postrotate
+		systemctl kill -s HUP --kill-who=main privoxy.service
+	endscript
+}
+
+/var/log/privoxy/jarfile {
+	su privoxy privoxy
+	create 644 privoxy privoxy
+	missingok
+	compress
+	size 1M
+	postrotate
+		systemctl kill -s HUP --kill-who=main privoxy.service
+	endscript
+}
